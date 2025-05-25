@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuestWalker - Admin Panel</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header>
+    <div class="logo">QuestWalker Admin</div>
+    <nav>
+      <ul>
+        <li><a href="homepage.html">Back to App</a></li>
+        <li><a href="#" id="reports-tab" class="active">Reports</a></li>
+        <li><a href="#" id="users-tab">Users</a></li>
+        <li><a href="#" id="quests-tab">Quests</a></li>
+      </ul>
+    </nav>
+    <div class="admin-info">
+      <span id="admin-email"></span>
+      <button id="logout-admin">Logout</button>
+    </div>
+  </header>
+
+  <div class="admin-content">
+    <div id="reports-panel" class="panel active">
+      <h2>Quest Reports</h2>
+      <div class="filters">
+        <select id="report-status-filter">
+          <option value="open" selected>Open</option>
+          <option value="resolved">Resolved</option>
+          <option value="dismissed">Dismissed</option>
+          <option value="all">All</option>
+        </select>
+        <button id="refresh-reports">Refresh</button>
+      </div>
+      <div id="reports-list">
+        <!-- Reports will be loaded here -->
+      </div>
+    </div>
+
+    <div id="users-panel" class="panel">
+      <h2>User Management</h2>
+      <div class="search-container">
+        <input type="text" id="user-search" placeholder="Search users...">
+        <button id="search-users">Search</button>
+      </div>
+      <div id="users-list">
+        <!-- Users will be loaded here -->
+      </div>
+    </div>
+
+    <div id="quests-panel" class="panel">
+      <h2>Quest Management</h2>
+      <div class="search-container">
+        <input type="text" id="quest-search" placeholder="Search quests...">
+        <button id="search-quests">Search</button>
+      </div>
+      <div id="quests-list">
+        <!-- Quests will be loaded here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Report Action Modal -->
+  <div id="action-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" id="close-action">&times;</span>
+      <h2 id="action-title">Report Actions</h2>
+      <div id="report-details-container">
+        <!-- Report details will be loaded here -->
+      </div>
+      <div class="action-buttons">
+        <button id="ban-user">Ban User</button>
+        <button id="remove-quest">Remove Quest</button>
+        <button id="dismiss-report">Dismiss Report</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ban Confirmation Modal -->
+  <div id="ban-confirm-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" id="close-ban-confirm">&times;</span>
+      <h2>Confirm Ban</h2>
+      <div id="ban-confirm-details">
+        Are you sure you want to ban this user?
+      </div>
+      <div class="action-buttons">
+        <button id="confirm-ban">Yes, Ban User</button>
+        <button id="cancel-ban">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

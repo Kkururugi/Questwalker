@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuestWalker - Offers</title>
+  <link rel="stylesheet" href="offers.css">
+</head>
+<body>
+  <header>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+    <div class="logo">QuestWalker</div>
+    <div class="user-controls" id="user-controls" style="display: none;">
+      <a href="profile.html" id="profile-link">
+        <img src="profile-placeholder.png" alt="User Profile" id="profile-img" />
+      </a>
+    </div>
+  </header>
+
+  <nav id="nav-menu" class="hidden">
+    <ul>
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="quests.html">My Quests</a></li>
+      <li><a href="quest-posting.html">post-quest</a></li>
+      <li><a href="notifications.html">Notifications</a></li>
+      <li><a href="chat.html">Chat</a></li>
+      <li id="admin-link-container" style="display:none;">
+        <a href="admin.html">Admin</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="user-controls">
+    <a href="profile.html" id="profile-link">
+      <img src="profile-placeholder.png" alt="User Profile" id="profile-img" />
+    </a>
+  </div>
+</header>
+
+  <div class="container">
+    <h1>Quest Offers</h1>
+    <div id="offers-list">
+      <!-- Offers will be loaded here -->
+    </div>
+  </div>
+
+  <script type="module" src="offers.js"></script>
+</body>
+</html>

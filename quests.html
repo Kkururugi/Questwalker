@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuestWalker - My Quests</title>
+  <link rel="stylesheet" href="quests.css">
+</head>
+<body>
+  <header>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+    <div class="logo">QuestWalker</div>
+    <div class="user-controls" id="user-controls" style="display: none;">
+      <a href="profile.html" id="profile-link">
+        <img src="profile-placeholder.png" alt="User Profile" id="profile-img" />
+      </a>
+    </div>
+  </header>
+
+  <nav id="nav-menu" class="hidden">
+    <ul>
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="quests.html">My Quests</a></li>
+      <li><a href="quest-posting.html">post-quest</a></li>
+      <li><a href="notifications.html">Notifications</a></li>
+      <li><a href="chat.html">Chat</a></li>
+      <li id="admin-link-container" style="display:none;">
+        <a href="admin.html">Admin</a>
+      </li>
+    </ul>
+  </nav>
+
+
+  <div class="container">
+    <h1>My Quests</h1>
+<div class="filters">
+  <button class="filter-btn active" data-filter="open">Open</button>
+  <button class="filter-btn" data-filter="in-progress">In Progress</button>
+  <button class="filter-btn" data-filter="completed">Completed</button>
+  <button class="filter-btn" data-filter="deleted">Deleted</button>
+</div>
+<div id="quests-list"></div>
+
+      <!-- Quests will be loaded here -->
+    </div>
+  </div>
+
+  <script type="module" src="quests.js"></script>
+  <script type="module" src="navbar.js"></script>
+</body>
+</html>

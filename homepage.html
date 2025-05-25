@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuestWalker - Homepage</title>
+  <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+  <header>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+    <div class="logo">QuestWalker</div>
+    <div class="user-controls" id="user-controls" style="display: none;">
+      <a href="profile.html" id="profile-link">
+        <img src="profile-placeholder.png" alt="User Profile" id="profile-img" />
+      </a>
+    </div>
+  </header>
+
+  <nav id="nav-menu" class="hidden">
+    <ul>
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="quests.html">My Quests</a></li>
+      <li><a href="quest-posting.html">post-quest</a></li>
+      <li><a href="notifications.html">Notifications</a></li>
+      <li><a href="chat.html">Chat</a></li>
+      <li id="admin-link-container" style="display:none;">
+        <a href="admin.html">Admin</a>
+      </li>
+    </ul>
+  </nav>
+
+
+  <div class="content">
+    <h2>Explore Quests</h2>
+<!-- Search Bar -->
+<div id="search-container" style="margin-bottom: 15px;">
+  <input type="text" id="search-bar" placeholder="Search quests..." />
+</div>
+
+    <div id="categories">
+      <h3>Categories</h3>
+      <ul id="category-list">
+        <!-- Categories will be dynamically added here -->
+      </ul>
+    </div>
+
+    <h2>Quests</h2>
+
+    <!-- Hide Completed Checkbox -->
+
+
+    <div id="quests-list">
+      <!-- Quest cards will be injected here -->
+    </div>
+  </div>
+
+  <!-- Offer Modal -->
+  <div id="offer-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" id="close-offer">&times;</span>
+      <h2>Make an Offer</h2>
+      <div class="form-group">
+        <label for="offer-amount">Your Offer Amount (php):</label>
+        <input type="number" id="offer-amount" min="1" step="1" placeholder="50">
+      </div>
+      <div class="form-group">
+        <label for="offer-text">Message (Optional):</label>
+        <textarea id="offer-text" placeholder="Add any additional details..."></textarea>
+      </div>
+      <button id="send-offer">Send Offer</button>
+    </div>
+  </div>
+
+  <!-- Report Modal -->
+  <div id="report-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" id="close-report">&times;</span>
+      <h2>Report Quest</h2>
+      <div class="form-group">
+        <label for="report-reason">Reason:</label>
+        <select id="report-reason">
+          <option value="spam">Spam</option>
+          <option value="inappropriate">Inappropriate Content</option>
+          <option value="scam">Scam/Fraud</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="report-details">Additional Details:</label>
+        <textarea id="report-details" placeholder="Please provide more details..."></textarea>
+      </div>
+      <button id="submit-report">Submit Report</button>
+    </div>
+  </div>
+
+  <!-- Firebase & JS -->
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="homepage.js"></script> 
+  <script type="module" src="navbar.js"></script>
+</body>
+</html>

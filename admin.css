@@ -1,0 +1,254 @@
+/* admin.css - Responsive and Enhanced Version */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+nav ul li {
+  margin-left: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: block;
+}
+
+nav ul li a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.admin-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+#logout-admin {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.admin-content {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}
+
+.filters, .search-container {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+#report-status-filter, #user-search, #quest-search {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  flex-grow: 1;
+  min-width: 200px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  white-space: nowrap;
+}
+
+.report-item, .user-item, .quest-item {
+  background-color: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.status-pending {
+  color: #f39c12;
+}
+
+.status-resolved {
+  color: #2ecc71;
+}
+
+.status-banned {
+  color: #e74c3c;
+}
+
+.status-active {
+  color: #2ecc71;
+}
+
+.user-actions, .quest-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.ban-user-btn {
+  background-color: #e74c3c;
+}
+
+.unban-user-btn {
+  background-color: #2ecc71;
+}
+
+.make-admin-btn {
+  background-color: #3498db;
+}
+
+.visit-profile-btn {
+  background-color: #9b59b6;
+}
+
+.remove-quest-btn {
+  background-color: #e74c3c;
+}
+
+.view-report-btn {
+  background-color: #3498db;
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #7f8c8d;
+}
+
+.close:hover {
+  color: #333;
+}
+
+.action-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+#ban-user {
+  background-color: #e74c3c;
+}
+
+#remove-quest {
+  background-color: #e67e22;
+}
+
+#dismiss-report {
+  background-color: #3498db;
+}
+
+#cancel-ban {
+  background-color: #95a5a6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .admin-info {
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+  
+  .filters, .search-container {
+    flex-direction: column;
+  }
+  
+  #report-status-filter, #user-search, #quest-search {
+    width: 100%;
+  }
+}

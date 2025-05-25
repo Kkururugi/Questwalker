@@ -1,0 +1,256 @@
+/* Navbar Styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3a0475;
+  color: white;
+  padding: 10px 15px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.hamburger {
+  font-size: 28px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.user-controls img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+nav {
+  background-color: #3a0475;
+}
+
+nav ul {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* Search bar */
+#search-bar {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  text-align: center;
+}
+
+/* User controls */
+.user-controls {
+  display: flex;
+  align-items: center;
+}
+
+#profile-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+/* Content Section */
+.content {
+  padding: 30px 5%;
+  text-align: center;
+}
+
+/* Categories Section */
+#categories {
+  margin: 20px 0;
+  text-align: center;
+}
+
+#categories h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+#category-list li {
+  background-color: #3a0475;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+#category-list li:hover {
+  background-color: #3a0475;
+}
+
+/* Quest Display */
+#quests-list {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.quest {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: center;
+}
+
+.quest h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.quest button {
+  background-color: #3a0475;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.quest button:hover {
+  background-color: #3a0475;
+}
+
+/* ========== Modals ========== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.modal-content textarea {
+  width: 100%;
+  min-height: 100px;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.modal-content button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #3a0475;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #3a0475;
+}
+
+.modal-content .close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 22px;
+  color: #888;
+  cursor: pointer;
+}
+
+.modal-content .close:hover {
+  color: #000;
+}
+
+/* Responsive styles */
+
+
+  #nav-menu ul {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  #nav-menu.active ul {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+    margin-top: 10px;
+  }
+
+  #search-bar {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .user-controls {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+

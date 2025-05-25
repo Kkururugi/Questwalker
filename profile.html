@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile</title>
+  <link rel="stylesheet" href="profile.css" />
+  <script type="module" src="profile.js"></script>
+</head>
+<body>
+  <header>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+    <div class="logo">QuestWalker</div>
+    <div class="user-controls" id="user-controls" style="display: none;">
+      <a href="profile.html" id="profile-link">
+        <img src="profile-placeholder.png" alt="User Profile" id="profile-img" />
+      </a>
+    </div>
+  </header>
+
+  <nav id="nav-menu" class="hidden">
+    <ul>
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="quests.html">My Quests</a></li>
+      <li><a href="quest-posting.html">post-quest</a></li>
+      <li><a href="notifications.html">Notifications</a></li>
+      <li><a href="chat.html">Chat</a></li>
+      <li id="admin-link-container" style="display:none;">
+        <a href="admin.html">Admin</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Modal -->
+  <div id="picModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h3>Confirm New Profile Picture</h3>
+      <img id="previewImage" src="" alt="Preview" class="profile-pic"/>
+      <div style="margin-top: 10px;">
+        <button id="confirmPic">Confirm</button>
+        <button id="cancelPic">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="content">
+    <section class="profile-info">
+      <h2 id="user-name">Loading...</h2>
+      <img id="profilePic" src="profile-placeholder.png" alt="Profile Picture" class="profile-pic"/>
+      
+      <div id="change-pic-container" style="display: none;">
+        <label for="profileImageUpload" class="change-pic-label">Change Profile Picture</label>
+        <input type="file" id="profileImageUpload" accept="image/*" />
+      </div>
+    </section>
+
+    <section id="about-me-section" class="section-card">
+      <h3>About Me</h3>
+      <textarea id="aboutMeInput" placeholder="Write something about yourself..."></textarea>
+      <button id="saveAboutMe">Save</button>
+    </section>
+
+    <section id="reviews" class="section-card">
+      <h2>Reviews</h2>
+      <div class="rating-summary">
+        <div class="average-rating">
+          <span id="average-rating">0</span>
+          <span class="rating-stars" id="average-stars"></span>
+          <span id="review-count">(0 reviews)</span>
+        </div>
+        <div class="rating-breakdown">
+          <div class="rating-bar">
+            <span>5 ★</span>
+            <div class="bar-container"><div class="bar" id="bar-5"></div></div>
+            <span id="count-5">0</span>
+          </div>
+          <div class="rating-bar">
+            <span>4 ★</span>
+            <div class="bar-container"><div class="bar" id="bar-4"></div></div>
+            <span id="count-4">0</span>
+          </div>
+          <div class="rating-bar">
+            <span>3 ★</span>
+            <div class="bar-container"><div class="bar" id="bar-3"></div></div>
+            <span id="count-3">0</span>
+          </div>
+          <div class="rating-bar">
+            <span>2 ★</span>
+            <div class="bar-container"><div class="bar" id="bar-2"></div></div>
+            <span id="count-2">0</span>
+          </div>
+          <div class="rating-bar">
+            <span>1 ★</span>
+            <div class="bar-container"><div class="bar" id="bar-1"></div></div>
+            <span id="count-1">0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-controls">
+        <select id="sort-reviews">
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+          <option value="highest">Highest Rated</option>
+          <option value="lowest">Lowest Rated</option>
+        </select>
+      </div>
+
+      <div id="reviews-list"></div>
+
+      <div class="pagination">
+        <button id="prev-page" disabled>Previous</button>
+        <span id="page-info">Page 1</span>
+        <button id="next-page" disabled>Next</button>
+      </div>
+
+      <div id="review-form-container" class="review-form">
+        <h3>Leave a Review</h3>
+        <textarea id="review-text" placeholder="Write your review here..."></textarea>
+        <select id="rating-select">
+          <option value="5">5 - Excellent</option>
+          <option value="4">4 - Good</option>
+          <option value="3">3 - Average</option>
+          <option value="2">2 - Poor</option>
+          <option value="1">1 - Bad</option>
+        </select>
+        <button id="submit-review">Submit Review</button>
+      </div>
+    </section>
+
+    <div class="logout-container">
+      <button id="logout-btn">Logout</button>
+    </div>
+  </main>
+</body>
+</html>

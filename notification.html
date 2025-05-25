@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuestWalker - Notifications</title>
+  <link rel="stylesheet" href="notifications.css">
+</head>
+<body>
+  <header>
+    <div class="logo">QuestWalker</div>
+    <nav>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="quests.html">My Quests</a></li>
+        <li><a href="notifications.html" class="active">Notifications</a></li>
+        <li><a href="chat.html">Chat</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Notifications</h1>
+    <div class="notification-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="questAccepted">Quest Accepted</button>
+      <button class="filter-btn" data-filter="questOffer">Offers</button>
+    </div>
+    <div id="notifications-list">
+      <!-- Notifications will be loaded here -->
+    </div>
+  </div>
+
+  <script type="module" src="notifications.js"></script>
+</body>
+</html>
