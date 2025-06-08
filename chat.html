@@ -1,0 +1,62 @@
+<!-- chat.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuestWalker Chat</title>
+  <link rel="stylesheet" href="chat.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+  <div class="header">
+    <div class="header-left">
+      <button id="mobile-menu-toggle" class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+      <span class="logo">QuestWalker</span>
+    </div>
+    <div class="header-right">
+      <a href="profile.html" class="user-info">
+        <img class="user-img" src="https://storage.googleapis.com/a1aa/image/d0adfb58-67ae-4431-bd62-8ec5c2035b76.jpg" alt="User"/>
+        <span id="username-display">User</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="mobile-chat-header hidden">
+    <button id="back-to-chats" class="back-btn"><i class="fas fa-arrow-left"></i></button>
+    <div id="mobileChatHeader">Select a user to chat</div>
+  </div>
+
+  <div class="main-container">
+    <nav class="sidebar-nav mobile-hidden">
+      <a href="homepage.html"><i class="fas fa-home"></i> Home</a>
+      <a href="quests.html"><i class="fas fa-tasks"></i> My Quests</a>
+      <a href="quest-posting.html"><i class="fas fa-plus-circle"></i> Post Quest</a>
+      <a href="notifications.html"><i class="fas fa-bell"></i> Notifications</a>
+      <a href="chat.html"><i class="fas fa-comment"></i> Chat</a>
+      <a id="admin-link-container" class="hidden" href="admin.html"><i class="fas fa-cog"></i> Admin</a>
+    </nav>
+
+    <main class="main-content mobile-hidden">
+      <div class="chat-main">
+        <div class="chat-header" id="chatHeader">Select a user to chat</div>
+        <div class="chat-messages" id="messages"></div>
+        <div class="chat-input"><input type="text" id="messageInput" placeholder="Type a message..." />
+          <input type="file" id="chatImageInput" accept="image/*" style="display: none;">
+          <button id="chatImageButton">📷</button>
+          <button id="sendBtn">Send</button>
+        </div>
+        <div id="imagePreview" class="image-preview hidden"></div>
+      </div>
+    </main>
+
+    <aside class="quest-sidebar">
+      <div class="sidebar-header"><h3>Chats</h3></div>
+      <input type="text" id="searchInput" placeholder="Search users..." />
+      <div id="userList"></div>
+    </aside>
+  </div>
+
+  <script type="module" src="chat.js"></script>
+</body>
+</html>

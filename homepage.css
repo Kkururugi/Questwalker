@@ -1,0 +1,635 @@
+/* Base Styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #f3f4f6;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.5;
+  padding-bottom: 60px; /* Space for mobile quest list */
+}
+
+/* Header Styles */
+.header {
+  background-color: #fff7ed;
+  padding: 10px 15px;
+  border-bottom: 2px solid orange;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 16px;
+  color: #d97706;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-container {
+  position: relative;
+}
+
+#search-bar {
+  padding: 6px 10px 6px 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+  font-size: 14px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.explore-btn {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.explore-btn:hover {
+  background-color: #f3f4f6;
+}
+
+.user-info {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.user-info:hover {
+  background-color: #f3f4f6;
+  text-decoration: none;
+}
+
+.user-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #fca5a5;
+  object-fit: cover;
+}
+
+/* Mobile Elements */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #d97706;
+  padding: 5px;
+  position: relative;
+}
+
+.profile-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid white;
+  overflow: hidden;
+}
+
+.user-img-small {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mobile-search-container {
+  display: none;
+  padding: 8px 15px; /* Reduced padding */
+  background-color: #fff7ed;
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+  width: 100%; /* Ensure it takes full width */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+#mobile-search-bar {
+  padding: 8px 10px 8px 35px; /* Adjusted padding */
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  width: 100%; /* Full width of container */
+  font-size: 14px;
+  background-color: white;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.mobile-search-wrapper {
+  position: relative;
+  max-width: 100%; /* Prevent overflow */
+  margin: 0 auto; /* Center if there's extra space */
+}
+
+  .desktop-search {
+    display: none;
+  }
+  
+.mobile-search-icon {
+  position: absolute;
+  left: 25px; /* Adjusted position */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Mobile Sidebar */
+.mobile-sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background-color: white;
+  z-index: 99;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.mobile-profile {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Main Layout */
+.main-container {
+  display: grid;
+  grid-template-columns: 200px 1fr 300px;
+  min-height: calc(100vh - 60px);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+  background-color: #f9fafb;
+  border-right: 1px solid #e5e7eb;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.desktop-sidebar {
+  display: flex;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  color: #4b5563;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.sidebar-nav a:hover {
+  background-color: #f3f4f6;
+  color: #3b82f6;
+}
+
+.sidebar-nav a i {
+  width: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Main Content */
+.main-content {
+  background-color: white;
+  padding: 20px;
+  border-right: 1px solid #e5e7eb;
+  overflow-y: auto;
+}
+
+.default-view {
+  text-align: center;
+  padding: 40px 0;
+  color: #6b7280;
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.default-view i {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #9ca3af;
+}
+
+.default-view p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Quest Details */
+#quest-details {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+#quest-details h3 {
+  color: #3a0475;
+  margin-top: 0;
+  font-size: 24px;
+}
+
+#quest-details p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+#quest-details p strong {
+  color: #4b5563;
+  min-width: 120px;
+  display: inline-block;
+}
+
+#quest-details.visible {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Quest Sidebar */
+.quest-sidebar {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quest-list-container {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.toggle-quest-list {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #3498DB;
+  cursor: pointer;
+}
+
+/* Category Tabs */
+.category-tabs {
+  display: flex;
+  gap: 6px;
+  padding: 10px 15px;
+  overflow-x: auto;
+}
+
+.category-tab {
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #f3f4f6;
+  border: none;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.category-tab:hover {
+  background-color: #e5e7eb;
+}
+
+.category-tab.active {
+  background-color: #3498DB;
+  color: white;
+  font-weight: 500;
+}
+
+/* Quest List Items */
+#quests-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#quests-list li {
+  cursor: pointer;
+  padding: 12px 15px;
+  transition: background-color 0.2s;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+#quests-list li:hover {
+  background-color: #f0f0f0;
+}
+
+#quests-list li.active {
+  background-color: #e0e0ff;
+  border-left: 3px solid #3498DB;
+}
+
+/* Quest Action Buttons */
+.quest-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.quest-actions button {
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.ask-question-btn {
+  background-color: #3a82f6;
+  color: white;
+}
+
+.ask-question-btn:hover {
+  background-color: #2563eb;
+}
+
+.make-offer-btn {
+  background-color: #10b981;
+  color: white;
+}
+
+.make-offer-btn:hover {
+  background-color: #059669;
+}
+
+.report-btn {
+  background-color: #f43f5e;
+  color: white;
+}
+
+.report-btn:hover {
+  background-color: #e11d48;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .main-container {
+    grid-template-columns: 200px 1fr;
+  }
+  
+  .quest-sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 10px;
+    position: relative;
+  }
+  
+  .logo {
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  
+  .header-right {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .mobile-search-container {
+    display: block !important; /* Force show the mobile search */
+  }
+  
+  .desktop-search {
+    display: none;
+  }
+  
+  .main-container {
+    grid-template-columns: 1fr;
+    padding-bottom: 60px;
+  }
+  
+  .desktop-sidebar {
+    display: none;
+  }
+  
+  .main-content {
+    padding-bottom: 60px;
+  }
+  
+  .quest-sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    transition: height 0.3s ease;
+    z-index: 90;
+    background: white;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex !important;
+    flex-direction: column;
+  }
+  
+  .quest-sidebar.expanded {
+    height: 60vh;
+  }
+  
+  .quest-sidebar.expanded + .main-content {
+    padding-bottom: 60vh;
+  }
+  
+  .sidebar-header {
+    padding: 10px;
+    flex-shrink: 0;
+  }
+  
+  .quest-list-container {
+    height: calc(100% - 50px);
+    padding: 0 10px;
+  }
+  
+  .category-tabs {
+    padding: 8px 0;
+    gap: 4px;
+  }
+  
+  .category-tab {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+  
+  #quests-list li {
+    padding: 10px;
+    font-size: 13px;
+  }
+  
+  .toggle-quest-list {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 769px) {
+  .desktop-search {
+    display: block;
+  }
+  .mobile-search-container {
+    display: none !important;
+  }
+  .mobile-sidebar {
+    display: none !important;
+  }
+  .quest-sidebar {
+    position: sticky;
+    top: 60px;
+    height: calc(100vh - 60px);
+  }
+  .toggle-quest-list {
+    display: none;
+  }
+}
+/* Modal Styles */
+.hidden {
+  display: none !important;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.modal-header h2 {
+  margin: 0;
+}
+
+.close-modal {
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  min-height: 100px;
+}
+
+.btn-primary {
+  background-color: #3a82f6;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+}

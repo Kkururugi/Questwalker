@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuestWalker - Notifications</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="quests.css">
+  <link rel="stylesheet" href="notifications.css">
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <span class="logo">QuestWalker</span>
+    <div class="header-right">
+      <a href="profile.html" class="user-info">
+        <img class="user-img" src="https://storage.googleapis.com/a1aa/image/d0adfb58-67ae-4431-bd62-8ec5c2035b76.jpg" alt="User">
+        <span id="username-display">User</span>
+      </a>
+    </div>
+    <button class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Sidebar -->
+  <div id="mobile-sidebar" class="mobile-sidebar hidden">
+    <a href="profile.html" class="mobile-profile">
+      <img class="user-img" id="mobile-user-img" src="https://storage.googleapis.com/a1aa/image/d0adfb58-67ae-4431-bd62-8ec5c2035b76.jpg" alt="User">
+      <span id="mobile-username-display">User</span>
+    </a>
+  <nav class="sidebar-nav">
+      <a href="homepage.html">
+        <i class="fas fa-home"></i> Home
+      </a>
+      <a href="quests.html">
+        <i class="fas fa-tasks"></i> My Quests
+      </a>
+      <a href="quest-posting.html">
+        <i class="fas fa-plus-circle"></i> Post Quest
+      </a>
+      <a href="notifications.html">
+        <i class="fas fa-bell"></i> Notifications
+      </a>
+      <a href="chat.html">
+        <i class="fas fa-comment"></i> Chat
+      </a>
+      <a id="mobile-admin-link" class="hidden" href="admin.html">
+        <i class="fas fa-cog"></i> Admin
+      </a>
+    </nav>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="main-container">
+    <!-- Left Sidebar - Navigation -->
+    <nav class="sidebar-nav desktop-sidebar">
+      <a href="homepage.html">
+        <i class="fas fa-home"></i> Home
+      </a>
+      <a href="quests.html">
+        <i class="fas fa-tasks"></i> My Quests
+      </a>
+      <a href="quest-posting.html">
+        <i class="fas fa-plus-circle"></i> Post Quest
+      </a>
+      <a href="notifications.html">
+        <i class="fas fa-bell"></i> Notifications
+      </a>
+      <a href="chat.html">
+        <i class="fas fa-comment"></i> Chat
+      </a>
+      <a id="admin-link-container" class="hidden" href="admin.html">
+        <i class="fas fa-cog"></i> Admin
+      </a>
+    </nav>
+
+    <!-- Middle Section - Notifications -->
+    <main class="main-content">
+      <div class="container">
+        <h1>Notifications</h1>
+        <div class="notification-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="questAccepted">My Quests</button>
+          <button class="filter-btn" data-filter="questOffer">Offers</button>
+        </div>
+        <div id="notifications-list">
+          <!-- Notifications will be loaded here -->
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Drop Quest Modal -->
+  <div id="dropQuestModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Drop Quest</h2>
+      <p>Why are you dropping this quest?</p>
+      <textarea id="dropReason" placeholder="Enter reason..."></textarea>
+      <div class="modal-actions">
+        <button id="confirmDrop">Confirm Drop</button>
+        <button id="cancelDrop">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="notifications.js"></script>
+  <script type="module">
+    // Import Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
+    import {
+      getFirestore,
+      doc,
+      getDoc
+    } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js";
+    import {
+      getAuth,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
+
+    // Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCbLK26irLxdz03rDCMVHnqHYfDgBjn10g",
+      authDomain: "questwalker-5c547.firebaseapp.com",
+      projectId: "questwalker-5c547",
+      storageBucket: "questwalker-5c547.appspot.com",
+      messagingSenderId: "1058097550838",
+      appId: "1:1058097550838:web:7bdbb645be374c93e4e3d7"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+
+    // DOM Elements
+    const elements = {
+      usernameDisplay: document.getElementById("username-display"),
+      userProfileImg: document.querySelector(".user-img"),
+      adminLinkContainer: document.getElementById("admin-link-container"),
+      mobileAdminLink: document.getElementById("mobile-admin-link"),
+      mobileMenuBtn: document.querySelector(".mobile-menu-btn"),
+      mobileSidebar: document.getElementById("mobile-sidebar"),
+      mobileUsernameDisplay: document.getElementById("mobile-username-display"),
+      mobileUserImg: document.getElementById("mobile-user-img")
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setupEventListeners();
+      checkAuthState();
+    });
+
+    function setupEventListeners() {
+      // Mobile menu toggle
+      elements.mobileMenuBtn?.addEventListener('click', toggleMobileMenu);
+    }
+
+    function toggleMobileMenu() {
+      elements.mobileSidebar?.classList.toggle('hidden');
+    }
+
+    function checkAuthState() {
+      onAuthStateChanged(auth, async (user) => {
+        if (user) {
+          await loadUserProfile(user.uid);
+        } else {
+          window.location.href = "index.html";
+        }
+      });
+    }
+
+    async function loadUserProfile(uid) {
+      try {
+        const userDoc = await getDoc(doc(db, "users", uid));
+        if (userDoc.exists()) {
+          const userData = userDoc.data();
+          
+          // Update username display in header
+          if (elements.usernameDisplay) {
+            const displayName = `${userData.firstName || ''} ${userData.lastName || ''}`.trim() || "User";
+            elements.usernameDisplay.textContent = displayName;
+          }
+          
+          // Update mobile username display
+          if (elements.mobileUsernameDisplay) {
+            const mobileDisplayName = `${userData.firstName || ''} ${userData.lastName || ''}`.trim() || "User";
+            elements.mobileUsernameDisplay.textContent = mobileDisplayName;
+          }
+
+          // Update profile images
+          const profileImageUrl = userData.profilePic || "https://storage.googleapis.com/a1aa/image/d0adfb58-67ae-4431-bd62-8ec5c2035b76.jpg";
+          
+          if (elements.userProfileImg) {
+            elements.userProfileImg.src = profileImageUrl;
+          }
+          
+          if (elements.mobileUserImg) {
+            elements.mobileUserImg.src = profileImageUrl;
+          }
+
+          // Check if user is admin
+          if (userData.role === "admin") {
+            if (elements.adminLinkContainer) elements.adminLinkContainer.classList.remove("hidden");
+            if (elements.mobileAdminLink) elements.mobileAdminLink.classList.remove("hidden");
+          }
+        }
+      } catch (error) {
+        console.error("Error loading user profile:", error);
+      }
+    }
+  </script>
+</body>
+</html>

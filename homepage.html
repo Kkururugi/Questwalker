@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuestWalker - Homepage</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <span class="logo">QuestWalker</span>
+    <div class="header-right">
+      <div class="search-container desktop-search">
+        <input id="search-bar" type="text" placeholder="Search quests...">
+        <i class="fas fa-search search-icon"></i>
+      </div>
+      <button class="explore-btn">Explore Quest</button>
+      <a href="profile.html" class="user-info">
+        <img class="user-img" src="https://storage.googleapis.com/a1aa/image/d0adfb58-67ae-4431-bd62-8ec5c2035b76.jpg" alt="User">
+        <span id="username-display">User</span>
+      </a>
+    </div>
+    <button class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+      
+    </button>
+  </div>
+
+  <!-- Mobile Search -->
+<div class="mobile-search-container hidden">
+  <div class="mobile-search-wrapper">
+    <input id="mobile-search-bar" type="text" placeholder="Search quests...">
+    <i class="fas fa-search mobile-search-icon"></i>
+  </div>
+</div>
+
+  <!-- Mobile Sidebar -->
+  <div id="mobile-sidebar" class="mobile-sidebar hidden">
+    <a href="profile.html" class="mobile-user-info">
+      
+    <div class="mobile-profile">
+      <img class="user-img" src="https://storage.googleapis.com/a1aa/image/d0adfb58-67ae-4431-bd62-8ec5c2035b76.jpg" alt="User">
+      <span id="mobile-username-display">User</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="homepage.html">
+        <i class="fas fa-home"></i> Home
+      </a>
+      <a href="quests.html">
+        <i class="fas fa-tasks"></i> My Quests
+      </a>
+      <a href="quest-posting.html">
+        <i class="fas fa-plus-circle"></i> Post Quest
+      </a>
+      <a href="notifications.html">
+        <i class="fas fa-bell"></i> Notifications
+      </a>
+      <a href="chat.html">
+        <i class="fas fa-comment"></i> Chat
+      </a>
+      <a id="mobile-admin-link" class="hidden" href="admin.html">
+        <i class="fas fa-cog"></i> Admin
+      </a>
+    </nav>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="main-container">
+    <!-- Left Sidebar - Navigation -->
+    <nav class="sidebar-nav desktop-sidebar">
+      <a href="homepage.html">
+        <i class="fas fa-home"></i> Home
+      </a>
+      <a href="quests.html">
+        <i class="fas fa-tasks"></i> My Quests
+      </a>
+      <a href="quest-posting.html">
+        <i class="fas fa-plus-circle"></i> Post Quest
+      </a>
+      <a href="notifications.html">
+        <i class="fas fa-bell"></i> Notifications
+      </a>
+      <a href="chat.html">
+        <i class="fas fa-comment"></i> Chat
+      </a>
+      <a id="admin-link-container" class="hidden" href="admin.html">
+        <i class="fas fa-cog"></i> Admin
+      </a>
+    </nav>
+
+    <!-- Middle Section - Quest Details -->
+    <main class="main-content">
+      <div id="default-view" class="default-view">
+        <i class="fas fa-arrow-right"></i>
+        <p>Select a quest to view details</p>
+      </div>
+
+      <div id="quest-details" class="hidden">
+        <!-- Content will be injected here -->
+      </div>
+    </main>
+
+    <!-- Right Sidebar - Quest List -->
+<!-- Right Sidebar - Quest List -->
+<aside class="quest-sidebar" id="quest-sidebar">
+  <div class="sidebar-header">
+    <h3>Available Quests</h3>
+    <button class="toggle-quest-list" id="toggle-quest-list">
+      <i class="fas fa-chevron-down"></i>
+    </button>
+  </div>
+  <div class="quest-list-container">
+    <div class="category-tabs">
+      <button class="category-tab active" data-category="All">All</button>
+      <!-- Additional category tabs will be added dynamically -->
+    </div>
+    <ul id="quests-list">
+      <!-- Quest names will be injected here -->
+    </ul>
+  </div>
+</aside>
+  </div>
+
+
+<!-- Modals -->
+<!-- Offer Modal -->
+<div id="offer-modal" class="modal-overlay hidden">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Make an Offer</h2>
+      <button class="close-modal" id="close-offer">&times;</button>
+    </div>
+    <div class="form-group">
+      <label for="offer-amount">Your Offer Amount (php):</label>
+      <input type="number" id="offer-amount" min="1" step="1" placeholder="50">
+    </div>
+    <div class="form-group">
+      <label for="offer-text">Message (Optional):</label>
+      <textarea id="offer-text" placeholder="Add any additional details..."></textarea>
+    </div>
+    <button id="send-offer" class="btn-primary">Send Offer</button>
+  </div>
+</div>
+
+<!-- Report Modal -->
+<div id="report-modal" class="modal-overlay hidden">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Report Quest</h2>
+      <button class="close-modal" id="close-report">&times;</button>
+    </div>
+    <div class="form-group">
+      <label for="report-reason">Reason:</label>
+      <select id="report-reason">
+        <option value="spam">Spam</option>
+        <option value="inappropriate">Inappropriate Content</option>
+        <option value="scam">Scam/Fraud</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="report-details">Additional Details:</label>
+      <textarea id="report-details" placeholder="Please provide more details..."></textarea>
+    </div>
+    <button id="submit-report" class="btn-primary">Submit Report</button>
+  </div>
+</div>
+
+  <script src="homepage.js" type="module"></script>
+</body>
+</html>

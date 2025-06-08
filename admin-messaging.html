@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Messaging - QuestWalker</title>
+    <link rel="stylesheet" href="admin-messaging.css">
+</head>
+<body>
+    <!-- Admin Messaging Panel -->
+    <header>
+        <div class="logo">QuestWalker - Admin</div>
+        <nav>
+            <ul>
+                <li><a href="admin-dashboard.html">Dashboard</a></li>
+                <li><a href="admin-messaging.html">Messaging</a></li>
+                <li><a href="admin-quests.html">Quests</a></li>
+                <li><a href="admin-reports.html">Reports</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="message-section">
+        <h3>Messages</h3>
+
+        <!-- User Selection for Messaging -->
+        <label for="user-select">Select User:</label>
+        <select id="user-select">
+            <!-- Options will be populated dynamically -->
+        </select>
+
+        <!-- Chat Box to display messages -->
+        <div id="chat-box" class="chat-box"></div>
+
+        <!-- Admin message input area -->
+        <div class="message-input">
+            <input type="text" id="admin-message" placeholder="Type a message..." />
+            <button id="send-message-btn">Send</button>
+        </div>
+    </div>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="admin-messaging.js"></script>
+</body>
+</html>

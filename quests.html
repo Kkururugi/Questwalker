@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuestWalker - My Quests</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="quests.css">
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <span class="logo">QuestWalker</span>
+    <div class="header-right">
+      <a href="profile.html" class="user-info">
+        <img class="user-img" src="https://storage.googleapis.com/a1aa/image/d0adfb58-67ae-4431-bd62-8ec5c2035b76.jpg" alt="User">
+        <span id="username-display">User</span>
+      </a>
+    </div>
+    <button class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Sidebar -->
+<div id="mobile-sidebar" class="mobile-sidebar hidden">
+  <a href="profile.html" class="mobile-profile">
+    <img class="user-img" id="mobile-user-img" src="https://storage.googleapis.com/a1aa/image/d0adfb58-67ae-4431-bd62-8ec5c2035b76.jpg" alt="User">
+    <span id="mobile-username-display">User</span>
+  </a>
+  <nav class="sidebar-nav">
+      <a href="homepage.html">
+        <i class="fas fa-home"></i> Home
+      </a>
+      <a href="quests.html">
+        <i class="fas fa-tasks"></i> My Quests
+      </a>
+      <a href="quest-posting.html">
+        <i class="fas fa-plus-circle"></i> Post Quest
+      </a>
+      <a href="notifications.html">
+        <i class="fas fa-bell"></i> Notifications
+      </a>
+      <a href="chat.html">
+        <i class="fas fa-comment"></i> Chat
+      </a>
+      <a id="mobile-admin-link" class="hidden" href="admin.html">
+        <i class="fas fa-cog"></i> Admin
+      </a>
+    </nav>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="main-container">
+    <!-- Left Sidebar - Navigation -->
+    <nav class="sidebar-nav desktop-sidebar">
+      <a href="homepage.html">
+        <i class="fas fa-home"></i> Home
+      </a>
+      <a href="quests.html">
+        <i class="fas fa-tasks"></i> My Quests
+      </a>
+      <a href="quest-posting.html">
+        <i class="fas fa-plus-circle"></i> Post Quest
+      </a>
+      <a href="notifications.html">
+        <i class="fas fa-bell"></i> Notifications
+      </a>
+      <a href="chat.html">
+        <i class="fas fa-comment"></i> Chat
+      </a>
+      <a id="admin-link-container" class="hidden" href="admin.html">
+        <i class="fas fa-cog"></i> Admin
+      </a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <h1>My Quests</h1>
+        <div class="filters">
+          <button class="filter-btn active" data-filter="open">Open</button>
+          <button class="filter-btn" data-filter="in-progress">In Progress</button>
+          <button class="filter-btn" data-filter="completed">Completed</button>
+          <button class="filter-btn" data-filter="deleted">Deleted</button>
+        </div>
+        <div id="quests-list"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="quests.js" type="module"></script>
+</body>
+</html>
